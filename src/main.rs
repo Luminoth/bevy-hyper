@@ -64,6 +64,7 @@ fn start_http_listener(
 
             // TODO: how do I get ctx passed into this?
             // no amount of cloning it seems to pass the test
+            // solution: https://users.rust-lang.org/t/hyper-tokio-pass-variable-to-service-handler/40550/2
             let service = make_service_fn(move |_| {
                 let ctx = ctx.clone();
                 async move {
